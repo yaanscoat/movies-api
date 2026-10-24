@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#08080b" />
+  <title>Movies</title>
+  <link rel="icon" href="/img/icon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://image.tmdb.org" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/app.css" />
+  <link rel="stylesheet" href="/css/player.css" />
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.17/dist/hls.min.js" defer></script>
+  <script type="module" src="/js/app.js"></script>
+</head>
+<body>
+  <!-- Ambient colour layer: a blurred copy of whatever backdrop is featured, so the glass has something to refract -->
+  <div class="ambient" aria-hidden="true"><div class="ambient-img"></div></div>
+
+  <header class="nav" id="nav" hidden>
+    <div class="nav-inner glass">
+      <a class="brand" href="#/browse" aria-label="Home">MOVIES</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#/browse" data-nav="browse">Home</a>
+        <a href="#/tv" data-nav="tv">Shows</a>
+        <a href="#/movies" data-nav="movies">Movies</a>
+        <a href="#/new" data-nav="new">New &amp; Popular</a>
+        <a href="#/mylist" data-nav="mylist">My List</a>
+      </nav>
+      <div class="nav-right">
+        <form class="search" id="search" role="search">
+          <button type="button" class="icon-btn search-toggle" aria-label="Search">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          </button>
+          <input id="search-input" type="search" placeholder="Titles, people, genres" autocomplete="off" spellcheck="false" />
+        </form>
+        <button class="profile-chip" id="profile-chip" aria-haspopup="menu" aria-expanded="false"></button>
+        <div class="menu glass" id="profile-menu" role="menu" hidden></div>
+      </div>
+    </div>
+  </header>
+
+  <main id="view" tabindex="-1"></main>
+
+  <nav class="mobile-tabs glass" id="mobile-tabs" aria-label="Sections" hidden>
+    <a href="#/browse" data-nav="browse"><svg viewBox="0 0 24 24"><path d="M3 11 12 3l9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Home</a>
+    <a href="#/tv" data-nav="tv"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8"/></svg>Shows</a>
+    <a href="#/movies" data-nav="movies"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 3v18M17 3v18M3 8h4M3 16h4M17 8h4M17 16h4"/></svg>Movies</a>
+    <a href="#/new" data-nav="new"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>New</a>
+    <a href="#/mylist" data-nav="mylist"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>My List</a>
+  </nav>
+  <div id="modal-root"></div>
+  <div id="preview-root"></div>
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+
+  <noscript>This app needs JavaScript.</noscript>
+</body>
+</html>

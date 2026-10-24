@@ -1,0 +1,22 @@
+{
+  "name": "movies-api",
+  "version": "2.0.0",
+  "description": "Self-hosted movie streaming API with a Netflix-style Liquid Glass web app",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "bun src/index.js",
+    "dev": "bun --watch src/index.js",
+    "start:node": "node src/index.js",
+    "dev:node": "node --watch src/index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "happy-dom": "^21.0.1"
+  },
+  "optionalDependencies": {
+    "@p-stream/providers": "github:movie-web-rip/pstream-providers#production"
+  },
+  "license": "MIT"
+}
